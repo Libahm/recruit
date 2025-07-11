@@ -14,16 +14,15 @@
     Narrative & Structure Plan:
     1. The Title & The Crisis: Start with the presentation title and immediately hit with the "18名不足" crisis, framed by the company's "insane" growth.
     2. The Core Concept: Clearly visualize the "採用の案件化" (Turning Recruitment into a Project) flow as the new system.
-    3. The Persona: Reiterate the commitment to quality ("人格") despite the need for quantity. A quick, impactful section.
-    4. The 3-Pronged Strategy: Detail the three distinct, newly-defined approaches: 速攻・実践型 (Fast-acting), 狩猟型 (Hunter), and 農耕型 (Farmer).
-    5. The Engine for Execution: Introduce the "採用戦術タスクフォース" (Recruitment Strategy Task Force) as the concrete execution body.
-    6. The Call to Action: A powerful conclusion demanding execution.
+    3. The 3-Pronged Strategy: Detail the three distinct, newly-defined approaches: 速攻・実践型 (Fast-acting), 狩猟型 (Hunter), and 農耕型 (Farmer).
+    4. The Engine for Execution: Introduce the "採用戦術タスクフォース" (Recruitment Strategy Task Force) as the concrete execution body.
+    5. The Call to Action: A powerful conclusion demanding execution.
 
     Visualization Choices:
     - The Crisis (Section 1): A large KPI-style number for "18名" and a Donut Chart (Chart.js) to break down the shortage by department. Goal: Inform. (No SVG)
     - The Core Concept (Section 2): A horizontal Flow Chart (HTML/CSS) to visualize the 3-step project flow. Goal: Organize. (No SVG, No Mermaid JS)
-    - The 3-Pronged Strategy (Section 4): A 3-column grid layout with styled cards. Each card represents an approach, using icons (Unicode) and lists for clarity. Goal: Compare/Organize. (No SVG)
-    - The Engine for Execution (Section 5): A diagram using HTML/CSS to show the Task Force's structure, members, and KPIs. Goal: Organize. (No SVG)
+    - The 3-Pronged Strategy (Section 3): A 3-column grid layout with styled cards. Each card represents an approach, using icons (Unicode) and lists for clarity. Goal: Compare/Organize. (No SVG)
+    - The Engine for Execution (Section 4): A diagram using HTML/CSS to show the Task Force's structure and members. Goal: Organize. (No SVG)
 
     Color Palette:
     - Chosen Palette: Energetic & Playful (#00A6ED, #004AAD, #FF7A00, #FFD800, #9438FF) for a bold, forward-looking presentation.
@@ -35,7 +34,7 @@
     <style>
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            background-color: #f0f4f8;
+            background-color: #f9fafb; /* Base background */
             color: #1f2937;
         }
         .gradient-text {
@@ -61,6 +60,19 @@
             font-weight: 900;
             color: #FF7A00;
         }
+        .section-divider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2.5rem 0;
+        }
+        .dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: #d1d5db; /* gray-300 */
+            border-radius: 50%;
+            margin: 0 0.375rem; /* mx-1.5 */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -72,180 +84,201 @@
         </div>
     </header>
 
-    <main class="container mx-auto p-4 md:p-8">
-
-       <section id="intro" class="mb-20 text-center">
-    <h2 class="text-2xl md:text-3xl font-bold mb-4">1. なぜ今、新たな”採用戦術”が必要なのか</h2>
-    <p class="max-w-4xl mx-auto text-gray-700 mb-8">会社の成長は、えげつない。社長就任後、売上3.8倍、経常利益43倍。<br>しかし、その成長を支える「人材」が、今、圧倒的に不足しています。<br>これは単なる採用課題ではなく、会社の未来を左右する<strong class="text-[#FF7A00]">経営課題</strong>です。</p>
-    <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        <div class="text-center">
-            <p class="text-xl font-bold text-gray-800">現在、最低でもこれだけの人材が不足</p>
-            <p class="kpi-number">18<span class="text-4xl text-gray-600 ml-2">名</span></p>
-            <p class="text-gray-500">(+ 管理部門)</p>
-
-            <div class="mt-8 pt-6 border-t border-gray-200 text-left">
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <div>
-                        <h4 class="font-bold text-lg mb-2 text-[#FF7A00]">ソリューション (4名)</h4>
-                        <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
-                            <li>流通 1名</li>
-                            <li>売買 1名</li>
-                            <li>オーナーコンサル 1名</li>
-                            <li>矢加部社員代替 1名</li>
-                        </ul>
+    <main>
+        <!-- Section 1 -->
+        <div class="bg-white py-12 md:py-20">
+            <section id="intro" class="container mx-auto px-4 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">1. なぜ今、新たな”採用戦術”が必要なのか</h2>
+                <p class="max-w-4xl mx-auto text-gray-700 mb-8">会社の成長は、えげつない。社長就任後、売上3.8倍、経常利益43倍。<br>しかし、その成長を支える「人材」が、今、圧倒的に不足しています。<br>これは単なる採用課題ではなく、会社の未来を左右する<strong class="text-[#FF7A00]">経営課題</strong>です。</p>
+                <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="text-center">
+                        <p class="text-xl font-bold text-gray-800">現在、最低でもこれだけの人材が不足</p>
+                        <p class="kpi-number">18<span class="text-4xl text-gray-600 ml-2">名</span></p>
+                        <p class="text-gray-500">(+ 管理部門)</p>
+                        <div class="mt-8 pt-6 border-t border-gray-200 text-left">
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                                <div>
+                                    <h4 class="font-bold text-lg mb-2 text-[#FF7A00]">ソリューション (4名)</h4>
+                                    <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
+                                        <li>流通 1名</li>
+                                        <li>売買 1名</li>
+                                        <li>オーナーコンサル 1名</li>
+                                        <li>矢加部社員代替 1名</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-2 text-[#004AAD]">SKYWALKER (5名)</h4>
+                                    <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
+                                        <li>開発スタッフ 1名</li>
+                                        <li>コンサル 1名</li>
+                                        <li>コンサルサブ 1名</li>
+                                        <li>アプリ開発 1名</li>
+                                        <li>保守チーム 1名</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-2 text-[#00A6ED]">賃貸営業部 (9名)</h4>
+                                    <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
+                                        <li>大村 2名</li>
+                                        <li>駅前 2名</li>
+                                        <li>北 3名</li>
+                                        <li>佐世保 1名</li>
+                                        <li>佐賀 1名</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div>
-                        <h4 class="font-bold text-lg mb-2 text-[#004AAD]">SKYWALKER (5名)</h4>
-                        <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
-                            <li>開発スタッフ 1名</li>
-                            <li>コンサル 1名</li>
-                            <li>コンサルサブ 1名</li>
-                            <li>アプリ開発 1名</li>
-                            <li>保守チーム 1名</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-lg mb-2 text-[#00A6ED]">賃貸営業部 (9名)</h4>
-                        <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
-                            <li>大村 2名</li>
-                            <li>駅前 2名</li>
-                            <li>北 3名</li>
-                            <li>佐世保 1名</li>
-                            <li>佐賀 1名</li>
-                        </ul>
+                        <div class="chart-container" style="height:300px;">
+                            <canvas id="shortageChart"></canvas>
+                        </div>
                     </div>
                 </div>
-            </div>
-            </div>
-        <div>
-            <div class="chart-container" style="height:300px;">
-                <canvas id="shortageChart"></canvas>
-            </div>
+                <p class="mt-8 text-lg font-semibold max-w-4xl mx-auto">本日の提案は、社長の採用ルートと共存できる、<br><strong class="text-[#004AAD]">再現性のある新たな「採用戦術」</strong>を構築し、実行し、結果を出すためのものです。</p>
+            </section>
         </div>
-    </div>
-        <p class="mt-8 text-lg font-semibold max-w-4xl mx-auto">本日の提案は、社長の採用ルートと共存できる、<br><strong class="text-[#004AAD]">再現性のある新たな「採用戦術」</strong>を構築し、実行し、結果を出すためのものです。</p>
-</section>
 
-        <section id="concept" class="mb-20">
-            <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">2. コンセプト：採用活動を「案件化」する</h2>
-            <p class="text-center max-w-3xl mx-auto text-gray-700 mb-10">我々の役割は、社長の最終判断を仰ぐための「良質な案件」を創出すること。<br>そのために、採用活動のプロセスを再定義します。</p>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-center">
-                <div class="bg-white rounded-xl shadow-lg p-6 w-full md:w-1/4">
-                    <div class="text-5xl mb-3">📣</div>
-                    <h3 class="text-xl font-bold text-[#00A6ED]">集客</h3>
-                    <p class="text-sm text-gray-600">あらゆる手法で未来の仲間のタネを集める</p>
-                </div>
-                <div class="flow-arrow transform md:rotate-0 rotate-90">→</div>
-                <div class="bg-white rounded-xl shadow-lg p-6 w-full md:w-1/4">
-                    <div class="text-5xl mb-3">🌱</div>
-                    <h3 class="text-xl font-bold text-[#FF7A00]">案件化</h3>
-                    <p class="text-sm text-gray-600">面談を通じ「面接希望者」へと育成する</p>
-                </div>
-                <div class="flow-arrow transform md:rotate-0 rotate-90">→</div>
-                <div class="bg-white rounded-xl shadow-lg p-6 w-full md:w-1/4">
-                    <div class="text-5xl mb-3">🤝</div>
-                    <h3 class="text-xl font-bold text-[#004AAD]">クロージング</h3>
-                    <p class="text-sm text-gray-600">社長面接へトスアップ</p>
-                </div>
-            </div>
-            <div class="mt-10 text-center bg-sky-100 border-l-4 border-sky-500 text-sky-800 p-6 rounded-lg max-w-3xl mx-auto">
-                <h3 class="font-extrabold text-2xl">短期目標：社長に、これまで以上の数の面接をしていただく</h3>
-            </div>
-        </section>
+        <div class="section-divider bg-white"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
 
-        <section id="strategy" class="mb-20">
-            <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">3. 具体的な人材獲得戦術：3つのアプローチ</h2>
-             <p class="text-center max-w-3xl mx-auto text-gray-700 mb-10">「集客なら何でもいい」というスタンスのもと、<br>以下の3つのアプローチを全社的に、同時並行で実行します。</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#00A6ED]">
-                    <h3 class="text-2xl font-bold mb-2 flex items-center"><span class="text-4xl mr-3">🚀</span>【速攻・実践型】</h3>
-                    <p class="text-sm text-gray-500 mb-4">20-30代前半をターゲットに、採用支援サービスを活用</p>
-                    <ul class="list-disc list-inside space-y-1 text-gray-700">
-                        <li>募集型サービス (マイナビ等)</li>
-                        <li>スカウト型サービス (Bizreach等)</li>
-                        <li>エージェント型サービス (Neo Career等)</li>
-                    </ul>
+        <!-- Section 2 -->
+        <div class="bg-gray-50 py-12 md:py-20">
+            <section id="concept" class="container mx-auto px-4">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">2. コンセプト：採用活動を「案件化」する</h2>
+                <p class="text-center max-w-3xl mx-auto text-gray-700 mb-10">我々の役割は、社長の最終判断を仰ぐための「良質な案件」を創出すること。<br>そのために、採用活動のプロセスを再定義します。</p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-center">
+                    <div class="bg-white rounded-xl shadow-lg p-6 w-full md:w-1/4">
+                        <div class="text-5xl mb-3">📣</div>
+                        <h3 class="text-xl font-bold text-[#00A6ED]">集客</h3>
+                        <p class="text-sm text-gray-600">あらゆる手法で未来の仲間のタネを集める</p>
+                    </div>
+                    <div class="flow-arrow transform md:rotate-0 rotate-90">→</div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 w-full md:w-1/4">
+                        <div class="text-5xl mb-3">🌱</div>
+                        <h3 class="text-xl font-bold text-[#FF7A00]">案件化</h3>
+                        <p class="text-sm text-gray-600">面談を通じ「面接希望者」へと育成する</p>
+                    </div>
+                    <div class="flow-arrow transform md:rotate-0 rotate-90">→</div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 w-full md:w-1/4">
+                        <div class="text-5xl mb-3">🤝</div>
+                        <h3 class="text-xl font-bold text-[#004AAD]">クロージング</h3>
+                        <p class="text-sm text-gray-600">社長面接へトスアップ</p>
+                    </div>
                 </div>
-                 <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#FF7A00]">
-                    <h3 class="text-2xl font-bold mb-2 flex items-center"><span class="text-4xl mr-3">🏹</span>【狩猟型】</h3>
-                    <p class="text-sm text-gray-500 mb-4">ソリューション人材をターゲットに、ダイレクトにアプローチ</p>
-                     <ul class="list-disc list-inside space-y-1 text-gray-700">
-                        <li>スカウト採用 (業務を通した出会い)</li>
-                        <li>リファラル採用 (社員による紹介)</li>
-                        <li>転職フェア潜入 (朝隈がやりたい！)</li>
-                        <li>各種交流会への参加</li>
-                    </ul>
+                <div class="mt-10 text-center bg-sky-100 border-l-4 border-sky-500 text-sky-800 p-6 rounded-lg max-w-3xl mx-auto">
+                    <h3 class="font-extrabold text-2xl">短期目標：社長に、これまで以上の数の面接をしていただく</h3>
                 </div>
-                 <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#004AAD]">
-                    <h3 class="text-2xl font-bold mb-2 flex items-center"><span class="text-4xl mr-3">🌾</span>【農耕型】</h3>
-                    <p class="text-sm text-gray-500 mb-4">未来の仲間を育てる、中長期的な関係構築</p>
-                     <ul class="list-disc list-inside space-y-1 text-gray-700">
-                        <li>学校連携の強化 (高・専・大)</li>
-                        <li>インターンシップの企画・実施</li>
-                        <li>外部パートナー連携</li>
-                        <li>タレントプールの構築 (朝隈がやりたい！)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
-<section id="taskforce" class="mb-20">
-    <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">4. 実行体制：採用戦術タスクフォース（TF）</h2>
-     <p class="text-center max-w-3xl mx-auto text-gray-700 mb-10">これらの戦術を確実に実行するため、部門横断型の「人材戦術タスクフォース」の発足します。<br>経営会議メンバーが、採用を「自分ごと」として捉え、課題解決にあたる必要があります。</p>
-    <div class="bg-white rounded-2xl shadow-xl p-8 flex flex-col lg:flex-row items-center gap-8">
-        <div class="flex-shrink-0 text-center mb-6 lg:mb-0">
-            <div class="bg-gradient-to-br from-[#004AAD] to-[#00A6ED] text-white p-6 rounded-full w-48 h-48 flex flex-col justify-center items-center shadow-lg mx-auto">
-                <span class="text-lg font-bold">採用戦術</span>
-                <span class="text-3xl font-black">TF</span>
-                <span class="text-sm">(Task Force)</span>
-            </div>
-        </div>
-        <div class="flex-grow w-full grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 items-start">
-            <div class="md:col-span-1">
-                <h3 class="text-xl font-bold">目的：</h3>
-                <ul class="list-disc list-inside mb-4 ml-4 text-gray-800">
-                    <li>社長ルート以外の採用チャネルを開拓・確立</li>
-                    <li>採用活動の仕組み化と母集団形成</li>
-                </ul>
-                <h3 class="text-xl font-bold">役割：</h3>
-                 <ul class="list-disc list-inside ml-4 text-gray-800">
-                    <li>速攻実践型アプローチの早期実行</li>
-                    <li>経営会議への進捗・情報共有</li>
-                </ul>
-            </div>
-             <div class="md:col-span-1 w-full text-left bg-gray-100 border-l-4 border-gray-500 p-4 rounded-lg">
-                <h3 class="font-bold text-lg mb-2 text-gray-800">構成メンバー (案)</h3>
-                <p class="font-semibold text-sm">【中心】 原、淵上</p>
-                <div class="mt-2">
-                    <p class="font-semibold text-sm">【各事業部】</p>
-                    <ul class="list-disc list-inside text-sm ml-4 text-gray-600">
-                        <li>斉藤 (ソリューション)</li>
-                        <li>ボム (賃貸)</li>
-                        <li>野口 (管理)</li>
-                    </ul>
+        <div class="section-divider bg-gray-50"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+
+        <!-- Section 3 -->
+        <div class="bg-white py-12 md:py-20">
+            <section id="strategy" class="container mx-auto px-4">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">3. 具体的な人材獲得戦術：3つのアプローチ</h2>
+                <p class="text-center max-w-3xl mx-auto text-gray-700 mb-10">「集客なら何でもいい」というスタンスのもと、<br>以下の3つのアプローチを全社的に、同時並行で実行します。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#00A6ED]">
+                        <h3 class="text-2xl font-bold mb-2 flex items-center"><span class="text-4xl mr-3">🚀</span>【速攻・実践型】</h3>
+                        <p class="text-sm text-gray-500 mb-4">20-30代前半をターゲットに、採用支援サービスを活用</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
+                            <li>募集型サービス (マイナビ等)</li>
+                            <li>スカウト型サービス (Bizreach等)</li>
+                            <li>エージェント型サービス (Neo Career等)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#FF7A00]">
+                        <h3 class="text-2xl font-bold mb-2 flex items-center"><span class="text-4xl mr-3">🏹</span>【狩猟型】</h3>
+                        <p class="text-sm text-gray-500 mb-4">ソリューション人材をターゲットに、ダイレクトにアプローチ</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
+                            <li>スカウト採用 (業務を通した出会い)</li>
+                            <li>リファラル採用 (社員による紹介)</li>
+                            <li>転職フェア潜入 (朝隈がやりたい！)</li>
+                            <li>各種交流会への参加</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#004AAD]">
+                        <h3 class="text-2xl font-bold mb-2 flex items-center"><span class="text-4xl mr-3">🌾</span>【農耕型】</h3>
+                        <p class="text-sm text-gray-500 mb-4">未来の仲間を育てる、中長期的な関係構築</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
+                            <li>学校連携の強化 (高・専・大)</li>
+                            <li>インターンシップの企画・実施</li>
+                            <li>外部パートナー連携</li>
+                            <li>タレントプールの構築 (朝隈がやりたい！)</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="mt-2">
-                    <p class="font-semibold text-sm">【SKYWALKER】</p>
-                    <ul class="list-disc list-inside text-sm ml-4 text-gray-600">
-                        <li>ダイレクト：松田</li>
-                        <li>リレーション：川添、北里</li>
-                    </ul>
+            </section>
+        </div>
+
+        <div class="section-divider bg-white"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+
+        <!-- Section 4 -->
+        <div class="bg-gray-50 py-12 md:py-20">
+            <section id="taskforce" class="container mx-auto px-4">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">4. 実行体制：採用戦術タスクフォース（TF）</h2>
+                <p class="text-center max-w-3xl mx-auto text-gray-700 mb-10">これらの戦術を確実に実行するため、部門横断型の「人材戦術タスクフォース」の発足します。<br>経営会議メンバーが、採用を「自分ごと」として捉え、課題解決にあたる必要があります。</p>
+                <div class="bg-white rounded-2xl shadow-xl p-8 flex flex-col lg:flex-row items-center gap-8">
+                    <div class="flex-shrink-0 text-center mb-6 lg:mb-0">
+                        <div class="bg-gradient-to-br from-[#004AAD] to-[#00A6ED] text-white p-6 rounded-full w-48 h-48 flex flex-col justify-center items-center shadow-lg mx-auto">
+                            <span class="text-lg font-bold">採用戦術</span>
+                            <span class="text-3xl font-black">TF</span>
+                            <span class="text-sm">(Task Force)</span>
+                        </div>
+                    </div>
+                    <div class="flex-grow w-full grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 items-start">
+                        <div class="md:col-span-1">
+                            <h3 class="text-xl font-bold">目的：</h3>
+                            <ul class="list-disc list-inside mb-4 ml-4 text-gray-800">
+                                <li>社長ルート以外の採用チャネルを開拓・確立</li>
+                                <li>採用活動の仕組み化と母集団形成</li>
+                            </ul>
+                            <h3 class="text-xl font-bold">役割：</h3>
+                            <ul class="list-disc list-inside ml-4 text-gray-800">
+                                <li>速攻実践型アプローチの早期実行</li>
+                                <li>経営会議への進捗・情報共有</li>
+                            </ul>
+                        </div>
+                        <div class="md:col-span-1 w-full text-left bg-gray-100 border-l-4 border-gray-500 p-4 rounded-lg">
+                            <h3 class="font-bold text-lg mb-2 text-gray-800">構成メンバー (案)</h3>
+                            <p class="font-semibold text-sm">【中心】 原、淵上</p>
+                            <div class="mt-2">
+                                <p class="font-semibold text-sm">【各事業部】</p>
+                                <ul class="list-disc list-inside text-sm ml-4 text-gray-600">
+                                    <li>斉藤 (ソリューション)</li>
+                                    <li>ボム (賃貸)</li>
+                                    <li>野口 (管理)</li>
+                                </ul>
+                            </div>
+                            <div class="mt-2">
+                                <p class="font-semibold text-sm">【SKYWALKER】</p>
+                                <ul class="list-disc list-inside text-sm ml-4 text-gray-600">
+                                    <li>ダイレクト：松田</li>
+                                    <li>リレーション：川添、北里</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
+
+        <div class="section-divider bg-gray-50"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+
+        <!-- Section 5 -->
+        <div class="bg-white py-12 md:py-20">
+            <section id="conclusion" class="container mx-auto px-4 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">5. まとめ：戦術を、実行へ</h2>
+                <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 border-t-8 border-red-500">
+                    <p class="text-xl font-bold text-gray-800 mb-4">本日提案した戦術は、決して目新しいものではないかもしれません。</p>
+                    <p class="text-gray-700 mb-6">しかし、TBM研修で我々が学んだことは、現状を分析し、戦術を立て、<br>そして何よりも<strong class="text-[#004AAD]">「実行する」</strong>ことの重要性です。危機感をもって我々TBM研修参加メンバーが採用戦術の中核となり、再現性高く戦術を実行することが必要です。</p>
+                    <div class="bg-red-100 border-2 border-dashed border-red-500 text-red-800 p-6 rounded-lg">
+                        <h3 class="text-2xl font-black">超組織時代に向けて、<br>現在の「権限委譲と参謀の時代」の当事者として、<br>採用戦術を実行します。</h3>
+                    </div>
+                </div>
+            </section>
         </div>
-</section>
-        
-        <section id="conclusion" class="text-center">
-             <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">5. まとめ：戦術を、実行へ</h2>
-            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8">
-                 <p class="text-xl font-bold text-gray-800 mb-4">本日提案した戦術は、決して目新しいものではないかもしれません。</p>
-                 <p class="text-gray-700 mb-6">しかし、TBM研修で我々が学んだことは、現状を分析し、戦術を立て、<br>そして何よりも<strong class="text-[#004AAD]">「実行する」</strong>ことの重要性です。危機感をもって我々TBM研修参加メンバーが<br>採用戦術の中核となり、再現性高く戦術を実行することが必要です。</p>
-                 <div class="bg-red-100 border-2 border-dashed border-red-500 text-red-800 p-6 rounded-lg">
-                     <h3 class="text-2xl font-black">超組織時代に向けて、<br>現在の「権限委譲と参謀の時代」の当事者として、<br>採用戦術を実行します。</h3>
-                 </div>
-            </div>
-        </section>
 
     </main>
     
